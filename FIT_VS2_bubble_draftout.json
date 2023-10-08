@@ -1,0 +1,63 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "title": "Subscribers and uploaded videos by channel type",
+    "data": {"url": "https://raw.githubusercontent.com/dongmonash/3179/main/Global%20YouTube%20Statistics.csv"},
+    "vconcat": [
+      {
+        "encoding": {
+          "color": {
+            "condition": {
+              "param": "brush",
+              "title": "Channel type",
+              "field": "channel_type",
+              "type": "nominal",
+              "scale": {"domain": ["Music", "Games", "Entertainment", "Education", "People", "Sports", "Film", "News", "Comedy", "Howto", "Nonprofit", "Autos", "Tech", "Animals"]}
+            },
+            "value": "lightgray"
+          },
+          "size": {
+            "title": "Subscribers",
+            "field": "subscribers",
+            "type": "quantitative"
+          },
+          "x": {
+            "field": "uploads",
+            "type": "quantitative",
+            "title": "Uploaded videos"
+          },
+          "y": {
+            "title": "Numbers of subscribers",
+            "field": "subscribers",
+            "type": "quantitative"
+          }
+        },
+        "width": 600,
+        "height": 300,
+        "mark": {"type": "circle", "opacity": 0.7},
+        "params": [
+          {"name": "brush", "select": {"type": "interval", "encodings": ["x"]}}
+        ],
+        "transform": [{"filter": {"param": "click"}}]
+      },
+      {
+        "encoding": {
+          "color": {
+            "condition": {
+              "param": "click",
+              "field": "channel_type"
+            },
+            "value": "lightgray"
+          },
+          "x": {"aggregate": "count"},
+          "y": {"title": "Channel type", "field": "channel_type"}
+        },
+        "width": 600,
+        "mark": "bar",
+        "params": [
+          {"name": "click", "select": {"type": "point", "encodings": ["color"]}}
+        ],
+        "transform": [{"filter": {"param": "brush"}}]
+      }
+    ] 
+  }
+  
