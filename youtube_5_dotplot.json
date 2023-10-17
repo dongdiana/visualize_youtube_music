@@ -1,0 +1,63 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": 600,
+  "height": 350,
+  "title": "Lowest-Highest earning of Top 10 Music Youtube channels",
+  "data": {
+    "url": "https://raw.githubusercontent.com/dongmonash/3179/main/youtube_music_top10.csv"  
+  },
+  "encoding": {
+    "y": {
+      "field": "Youtuber",
+      "type": "nominal",
+      "title": "Youtuber",
+      "axis": {"grid": true}
+    },
+    "x": {
+      "field": "lowest_yearly_earnings",
+      "type": "quantitative",
+      "title": "Lowest earinings",
+      "axis": {"grid": false}
+    }
+  },
+  "layer": [
+    {
+      "mark": {"type": "circle", "size": 200},  
+      "encoding": {
+        "x": {
+          "field": "lowest_monthly_earnings",
+          "type": "quantitative",
+          "title": "Lowest earining (left dot)"
+        },
+        "color": {
+          "field": "lowest_monthly_earnings",
+          "type": "quantitative",
+          "title": "Earinings",
+          "scale": {"scheme": "reds"}},
+        "tooltip": [
+          {"field": "Youtuber", "title": "Youtuber"},
+          {"field": "lowest_monthly_earnings", "title": "Lowest Earnings"}
+      ]
+      }
+    },
+    {
+      "mark": {"type": "circle", "size": 200},  
+      "encoding": {
+        "x": {
+          "field": "highest_monthly_earnings",
+          "type": "quantitative",
+          "title": "Highest earining (right dot)"
+        },
+         "color": {
+            "field": "highest_monthly_earnings",
+            "type": "quantitative",
+            "title": "Earinings"},
+          "tooltip": [
+            {"field": "Youtuber", "title": "Youtuber"},
+            {"field": "highest_monthly_earnings", "title": "Highest Earnings"}
+      ]
+      }
+    }
+  ]
+}
+  
