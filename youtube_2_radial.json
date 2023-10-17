@@ -1,0 +1,37 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "title": "Channel type of Youtube channels",
+    "width": 500,
+    "height": 300, 
+    "data": {
+      "url": "https://raw.githubusercontent.com/dongmonash/3179/main/channel_type_count.csv"
+    },
+    "layer": [{
+      "mark": {"type": "arc", "innerRadius": 20, "stroke": "#fff"}
+    },
+    {
+        "mark": {
+          "type": "text",
+          "radiusOffset": 25,
+          "fontSize":12,
+          "fontWeight": "bold"},
+        "encoding": {
+          "text": {
+            "condition": {
+              "test": "datum.channel_type === 'Music'",
+              "value": "Music"
+            }
+          }
+        }
+      }
+    ],
+    "encoding": {
+      "theta": {"field": "Youtuber", "type": "quantitative", "stack": true},
+      "radius": {"field": "Youtuber", "scale": {"type": "sqrt", "zero": true, "rangeMin": 20}},
+      "color": {"field": "channel_type", "type": "nominal", "legend": null},
+      "tooltip": [
+          {"field": "channel_type", "title": "Channel Type"},
+          {"field": "Youtuber", "title": "Youtuber Count"}]
+    }
+  }
+  
