@@ -1,0 +1,96 @@
+
+h1 {
+    text-align: center;
+}
+
+h1 {
+    background-color: #f2f2f2; /* 색상을 원하는 색상으로 변경하세요. */
+    padding: 10px;
+    border-radius: 15px; /* 원하는 둥근 정도로 조절하세요. */
+    box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.1); /* 그림자 설정 */
+  }
+
+  h2 {
+    background-color: #f2f2f2; /* 색상을 원하는 색상으로 변경하세요. */
+    padding: 10px;
+    border-radius: 15px; /* 원하는 둥근 정도로 조절하세요. */
+    box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.1); /* 그림자 설정 */
+  }
+
+.text_center {
+    text-align: center;
+}
+
+.right-aligned {
+    float: right;
+    clear: right;
+    margin-left: 50px;
+}
+
+.left-aligned {
+    float: left;
+    margin-right: 50px; 
+}
+
+.text_center {
+    text-align: center;
+}
+
+.youtube-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+  }
+  
+  .youtube-plot {
+    width: 48%;
+    margin: 0 auto; 
+  }
+
+  #youtube3 {
+    margin: 0 auto;
+    display: block;
+}
+
+#youtube4 {
+    margin: 0 auto;
+    display: block;
+}
+
+#youtube5 {
+    margin: 0 auto;
+    display: block;
+}
+
+
+#youtube2 {
+    margin-left: auto; /* Right-align */
+    margin-right: 0; /* Remove margin from the right side */
+}
+
+
+#youtube_1_text {
+    float: left;
+    clear: left;
+    margin-right: 50px;
+    text-align: center;
+}
+
+#youtube_2_text {
+    float: right;
+    clear: right;
+    margin-left: 50px;
+    text-align: center;
+}
+
+#italic-text {
+    font-style: italic;
+    text-align: center;
+}
+
+body {
+    font-family: 'Fondamento', cursive;
+    font-family: 'Open Sans', sans-serif;
+}
