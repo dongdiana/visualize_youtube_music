@@ -1,0 +1,84 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "title": {
+      "text": "Video view, subscribers, and uploads for Music channels",
+      "anchor": "middle",
+      "align": "center"
+  },
+    "data": {"url": "https://raw.githubusercontent.com/dongmonash/3179/main/youtube_country_1.csv"},
+    "hconcat": [
+      {
+        "encoding": {
+          "color": {
+            "condition": {
+              "param": "brush",
+              "title": "Country",
+              "field": "Country_1",
+              "type": "nominal",
+              "legend": null
+            },
+            "value": "lightgray"
+            
+          },
+          "size": {
+            "title": "Uploads",
+            "field": "uploads",
+            "type": "quantitative"
+          },
+          "x": {
+            "field": "video views",
+            "type": "quantitative",
+            "title": "Video view",
+            "axis": {"grid": false}
+          },
+          "y": {
+            "title": "Subscribers",
+            "field": "subscribers",
+            "type": "quantitative",
+            "axis": {"grid": false}
+          },
+          "tooltip": [
+            {"field": "Youtuber"},
+            {"field": "Country_1", "title": "Country"},
+            {"field": "video views", "title": "Video Views"},
+            {"field": "subscribers", "title": "Subscribers"},
+            {"field": "uploads", "title": "Uploaded videos"}
+    ]
+        },
+        "width": 560,
+        "height": 350,
+        "mark": "point",
+        "params": [
+          {"name": "brush", "select": {"type": "interval", "encodings": ["x"]}}
+        ],
+        "transform": [{"filter": {"param": "click"}}]
+      },
+      {
+        "encoding": {
+          "color": {
+            "condition": {
+              "param": "click",
+              "field": "Country_1",
+              "scale": {
+              "range": ["#1f77b4", "#ff7f0e", "#2ca02c", "#d62728", "#9467bd", "#8c564b", "#e377c2", "#7f7f7f", "#bcbd22", "#17becf", "#3399FF", "#9933CC", "#808080"] 
+            }
+  
+            },
+            "value": "lightgray"
+          },
+          "x": {"aggregate": "count", "title": "Count of countries", "axis": {"grid": false}},
+          "y": {"title": null, "field": "Country_1"}
+        },
+        "width": 360,
+        "height": 350,
+        "mark": "bar",
+        "params": [
+          {"name": "click", "select": {"type": "point", "encodings": ["color"]}}
+        ],
+        "transform": [{"filter": {"param": "brush"}}]
+      }
+    ],
+  "config": {
+    "legend": {"orient": "top-left"}
+  }
+  }
