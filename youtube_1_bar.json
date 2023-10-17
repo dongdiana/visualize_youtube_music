@@ -1,0 +1,66 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": "Youtube Premium Subscribers in 2015-2022",
+  "width": 400,
+  "height": 300,
+  "data": {"url": "https://raw.githubusercontent.com/dongmonash/3179/main/youtube_revenue.csv"},
+  "layer": [
+    {
+      "mark": "bar",
+      "encoding": {
+        "x": {"field": "year", "type": "nominal", "axis": {"title": "Year", "labelAngle": 0}},
+        "y": {"field": "premium_subscribers(million)", "type": "quantitative", "axis": {"title": "Subscribers (million)"},
+          "scale": {"domain": [0, 90]}
+        },
+        "color": {
+          "field": "premium_subscribers(million)",
+          "type": "quantitative",
+          "title": "Subscribers (million)",
+          "scale": {"scheme": "reds"}
+        },
+        "tooltip": [
+          {"field": "year", "type": "nominal", "title": "Year"},
+          {"field": "premium_subscribers(million)", "title": "Subscribers (million)"}
+        ]
+      }
+    },
+    {
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "baseline": "middle",
+        "dx": -190,  
+        "dy": 135,  
+        "aria": false,
+        "fontStyle": "normal",
+        "fontSize": 10,
+        "fontWeight": "lighter"
+      },
+      "encoding": {
+        "text": {"value": "1.5 m"},
+        "color": {"value": "black"}
+      }
+    },
+    {
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "baseline": "middle",
+        "dx": 163,  
+        "dy": -127, 
+        "aria": false,
+        "fontStyle": "normal",
+        "fontSize": 10,
+        "fontWeight": "lighter"
+      },
+      "encoding": {
+        "text": {"value": "80 m"},
+        "color": {"value": "black"}
+      }
+    }
+  ],
+  "config": {
+    "axis": {"grid": false}
+  }
+}
+
